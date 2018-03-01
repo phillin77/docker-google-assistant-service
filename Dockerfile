@@ -16,7 +16,7 @@ RUN apt-get update -yy && \
 RUN pip3 install virtualenv
 RUN python3 -m venv env
 RUN env/bin/python -m pip install --upgrade pip setuptools wheel
-RUN source env/bin/activate
+/bin/bash -c "source env/bin/activate"
 RUN python -m pip install --upgrade google-assistant-sdk[samples]
 RUN python -m pip install --upgrade google-auth-oauthlib[tool]
 RUN deactivate
