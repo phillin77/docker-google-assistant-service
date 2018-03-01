@@ -13,13 +13,13 @@ RUN apt-get update -yy && \
     apt-get install -yy \
         portaudio19-dev libffi-dev libssl-dev
 
-RUN pip3 install virtualenv && \
-    python3 -m venv env && \
-    env/bin/python -m pip install --upgrade pip setuptools wheel && \
-    source env/bin/activate && \
-    python -m pip install --upgrade google-assistant-sdk[samples] && \
-    python -m pip install --upgrade google-auth-oauthlib[tool] && \
-    deactivate && \
-    rm -rf /var/cache/apt/* /tmp/* /var/tmp/*
+RUN pip3 install virtualenv
+RUN python3 -m venv env
+RUN env/bin/python -m pip install --upgrade pip setuptools wheel
+RUN source env/bin/activate
+RUN python -m pip install --upgrade google-assistant-sdk[samples]
+RUN python -m pip install --upgrade google-auth-oauthlib[tool]
+RUN deactivate
+RUN rm -rf /var/cache/apt/* /tmp/* /var/tmp/*
 
 CMD source env/bin/activate
