@@ -19,7 +19,7 @@ RUN env/bin/python -m pip install --upgrade pip setuptools wheel
 RUN /bin/bash -c "source env/bin/activate"
 RUN python -m pip install --upgrade google-assistant-sdk[samples]
 RUN python -m pip install --upgrade google-auth-oauthlib[tool]
-RUN deactivate
+# RUN deactivate
 RUN rm -rf /var/cache/apt/* /tmp/* /var/tmp/*
 
-CMD source env/bin/activate
+CMD /bin/bash -c "source env/bin/activate"
